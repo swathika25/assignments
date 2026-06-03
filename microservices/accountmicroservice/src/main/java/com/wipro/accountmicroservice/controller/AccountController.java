@@ -1,5 +1,7 @@
 package com.wipro.accountmicroservice.controller;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wipro.accountmicroservice.entity.account;
 import com.wipro.accountmicroservice.service.Iaccount;
-import com.wipro.accountmicroservice.vo.accountcustomerVO;
+
 
 @RestController
 @RequestMapping("/api/account")
@@ -39,10 +41,7 @@ public class AccountController {
         return service.getAllAccounts();
     }
     
-    @GetMapping("/customer/{id}")
-    public accountcustomerVO getAccountwithCustomer(@PathVariable Long id) {
-    	return service.getAccountwithCustomer(id);
-    }
+    
 	
 	
 

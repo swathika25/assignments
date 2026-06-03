@@ -2,15 +2,16 @@ package com.wipro.accountmicroservice.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.wipro.accountmicroservice.service.Iaccount;
 import com.wipro.accountmicroservice.entity.account;
 import com.wipro.accountmicroservice.repository.AccountRepository;
-import com.wipro.accountmicroservice.vo.accountcustomerVO;
-import com.wipro.accountmicroservice.vo.customerVO;
 
+@Service
 public class AccountServiceImp implements Iaccount {
 	
 	@Autowired
@@ -36,20 +37,7 @@ public class AccountServiceImp implements Iaccount {
 		return repo.findAll();
 	}
 	
-	@Override
-	public accountcustomerVO getAccountwithCustomer(Long accountId) {
-		
-		account acc = repo.findById(accountId).orElse(null);
-		
-		customerVO Customer = getRestTemplate.getForObject("http://localhost:8081/customer/" + acc.getCustomerId(),customerVO.class);
-		
-		accountcustomerVO vo = new accountcustomerVO();
-		
-	    vo.setAccount(acc);
-		vo.setCustomer(Customer);
-		
-		return vo;
-		
-	}
+	
+	
 
 }

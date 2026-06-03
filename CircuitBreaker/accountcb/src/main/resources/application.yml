@@ -1,0 +1,22 @@
+server:
+  port: 8081
+ 
+spring:
+  application:
+    name: ACCOUNT-EUREKA
+ 
+  datasource:
+    url: jdbc:mysql://localhost:3307/wiprodb
+    username: root
+    password: Swathika@25
+ 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+ 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+ 
